@@ -139,7 +139,8 @@
     </section> --}}
 
     <section>
-        <table border="1" sortable>
+
+        <table border="1" sortabl class="table table-bordered table-striped border-dark">
             <thead>
                 <th>Id</th>
                 <th>Nom produit</th>
@@ -157,14 +158,19 @@
                             <img src="{{ $produit->lien_image }}" alt="Lien" width="80" height="80">
                         </td>
                         <td>
-                            <a href="{{ route('produit.show', ['produit' => $produit]) }}">Voir</a>
-                            <a href="{{ route('produit.edit', $produit) }}">Edit</a>
+                            <a href="{{ route('produit.show', ['produit' => $produit]) }}" class="btn btn-outline-primary">Voir</a>
+                            <a href="{{ route('produit.edit', $produit) }}" class="btn btn-warning">Edit</a>
 
                         </td>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
 
                     </tr>
                 @endforeach
+
             </tbody>
         </table>
+        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Titre" data-bs-content="Contenue" data-bs-placement="bottom">Click to toggle popover</button>
     </section>
 @endsection
